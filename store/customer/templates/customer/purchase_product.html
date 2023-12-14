@@ -1,0 +1,7 @@
+<h1>Purchase Product</h1>
+<p>Are you sure you want to purchase "{{ product.name }}"?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Purchase</button>
+</form>
+<a href="{% url 'customer_product_list' %}">Cancel</a>

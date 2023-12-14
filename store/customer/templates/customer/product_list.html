@@ -1,0 +1,13 @@
+<h1>Product List</h1>
+<ul>
+    {% for product in products %}
+        <li>
+            {{ product.name }} - {{ product.price }}
+            <a href="{% url 'customer_product_detail' pk=product.pk%}">View Details</a>
+            <form method="POST" action="{% url 'customer_purchase_product' pk=product.pk %}">
+                {% csrf_token %}
+                <button type="submit">Purchase</button>
+            </form>
+         </li>
+    {% endfor %}
+</ul>
